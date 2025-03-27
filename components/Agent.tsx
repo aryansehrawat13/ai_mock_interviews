@@ -4,14 +4,14 @@ import Image from 'next/image'
 import React from 'react'
 
 enum CallStatus {
-    INACTIVE = 'inACTIVE',
+    INACTIVE = 'INACTIVE',
     CONNECTING = 'CONNECTING',
     ACTIVE = 'ACTIVE',
     FINISHED = 'FINISHED',
 }
 
 const Agent = ({userName}: AgentProps) => {
-    const callStatus = CallStatus.FINISHED;
+    const callStatus = CallStatus.ACTIVE;
     const isSpeaking = true;
     const messages = [
         'Whats your name?',
