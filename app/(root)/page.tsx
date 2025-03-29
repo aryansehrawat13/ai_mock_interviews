@@ -4,7 +4,8 @@ import { dummyInterviews } from '@/constants'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import {getCurrentUser, getInterviewsByUserId, getLatestInterviews} from "@/lib/actions/auth.action";
+import {getCurrentUser} from "@/lib/actions/auth.action";
+import {getInterviewsByUserId, getLatestInterviews} from "@/lib/actions/general.action"
 
 const page = async () => {
 
@@ -17,9 +18,9 @@ const page = async () => {
 
   
 
-  const hasPastInterview = userInterviews?.length >0;
+  const hasPastInterview = userInterviews?.length! >0;
 
-  const hasUpcomingInterviews = latestInterviews?.length >0;
+  const hasUpcomingInterviews = latestInterviews?.length! >0;
 
   return (
     <>

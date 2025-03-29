@@ -12,7 +12,7 @@ const DisplayTechicons = async ({techStack}: TechIconProps) => {
             <Image src={url} alt={tech} width={100} height={100} className='size-5' />
         </div>
     ))}</div>
-  )
-}
+  );
+};
 
-export default DisplayTechicons
+export default DisplayTechicons;
