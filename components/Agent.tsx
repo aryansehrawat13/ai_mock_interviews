@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
 import { cn } from '@/lib/utils';
-import { Span } from 'next/dist/trace';
 import Image from 'next/image'
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import {vapi} from '@/lib/vapi.sdk'
 import { interviewer } from '@/constants';
+import { createFeedback } from '@/lib/actions/general.action';
 
 enum CallStatus {
     INACTIVE = 'INACTIVE',
@@ -65,10 +65,11 @@ const Agent = ({userName, userId, type, interviewId, questions}: AgentProps) => 
         console.log('Generate feedback here.');
 
         //TODO: create a server action 
-        const { success, id} = {
-            success: true,
-            id: 'feedback-id'
-        }
+        const { success, feedbackId: id} = await createFeedback({
+            interviewId: interviewId!,
+            userId: userId!,
+            transcript: messages
+        })
 
         if(success && id ) {
             router.push(`/interview/${interviewId}/feedback`);
